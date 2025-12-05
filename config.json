@@ -1,0 +1,156 @@
+{
+    "config_version": "1.0",
+    "last_modified": "2024-01-01T00:00:00Z",
+    
+    "ollama": {
+        "url": "http://localhost:11434",
+        "default_model": "llama3",
+        "enable": true,
+        "timeout": 30,
+        "max_tokens": 1024,
+        "temperature": 0.3,
+        "available_models": ["llama3", "mistral", "cogito"]
+    },
+    
+    "application": {
+        "minimize_to_tray": true,
+        "auto_start": false,
+        "check_updates": true,
+        "max_log_size_mb": 100,
+        "report_directory": "",
+        "recent_files": [],
+        "window_geometry": "",
+        "window_state": ""
+    },
+    
+    "analysis": {
+        "risk_threshold": 5,
+        "email_alerts": false,
+        "email_recipient": "admin@example.com",
+        "sound_alerts": true,
+        "auto_analyze": false,
+        "auto_save_reports": true,
+        "default_log_type": "auto",
+        "concurrent_analysis": 1
+    },
+    
+    "security": {
+        "custom_patterns": [
+            {
+                "name": "Custom Malware",
+                "pattern": "malware\\.exe",
+                "event_type": "Malware",
+                "risk_score": 9,
+                "enabled": true
+            }
+        ],
+        "whitelist_ips": ["192.168.1.1", "10.0.0.1"],
+        "blacklist_ips": [],
+        "enable_geoip": false,
+        "geoip_database": ""
+    },
+    
+    "user_interface": {
+        "theme": "dark",
+        "font_size": 10,
+        "show_statusbar": true,
+        "show_toolbars": true,
+        "language": "en_US",
+        "auto_expand_tree": true,
+        "show_line_numbers": true,
+        "word_wrap": false
+    },
+    
+    "export": {
+        "default_format": "html",
+        "include_summary": true,
+        "include_details": true,
+        "include_statistics": true,
+        "compress_reports": false,
+        "timestamp_format": "yyyy-MM-dd_HH-mm-ss"
+    },
+    
+    "network": {
+        "proxy_enabled": false,
+        "proxy_host": "",
+        "proxy_port": 8080,
+        "proxy_user": "",
+        "proxy_password": "",
+        "verify_ssl": true,
+        "timeout": 30
+    },
+    
+    "logging": {
+        "level": "info",
+        "file": "log_summarizer.log",
+        "max_size_mb": 10,
+        "max_files": 5,
+        "console_output": true
+    },
+    
+    "advanced": {
+        "cache_enabled": true,
+        "cache_size_mb": 100,
+        "thread_pool_size": 4,
+        "memory_limit_mb": 512,
+        "enable_telemetry": false,
+        "crash_reporting": true
+    },
+    
+    "integrations": {
+        "splunk": {
+            "enabled": false,
+            "url": "",
+            "token": "",
+            "index": "security"
+        },
+        "elasticsearch": {
+            "enabled": false,
+            "url": "http://localhost:9200",
+            "index": "security-logs"
+        },
+        "slack": {
+            "enabled": false,
+            "webhook_url": "",
+            "channel": "#security-alerts"
+        }
+    },
+    
+    "detection_patterns": {
+        "failed_login": {
+            "enabled": true,
+            "risk_score": 6,
+            "threshold": 5,
+            "time_window_minutes": 10
+        },
+        "privilege_escalation": {
+            "enabled": true,
+            "risk_score": 8,
+            "monitor_processes": ["sudo", "runas", "su"]
+        },
+        "port_scan": {
+            "enabled": true,
+            "risk_score": 7,
+            "port_threshold": 20,
+            "time_window_minutes": 5
+        },
+        "data_exfiltration": {
+            "enabled": true,
+            "risk_score": 9,
+            "large_transfer_mb": 100
+        },
+        "ransomware": {
+            "enabled": true,
+            "risk_score": 10,
+            "file_extensions": [".encrypted", ".locked", ".crypt"]
+        }
+    },
+    
+    "compliance": {
+        "gdpr_enabled": false,
+        "hipaa_enabled": false,
+        "pci_dss_enabled": false,
+        "data_retention_days": 365,
+        "encryption_enabled": false
+    }
+}
